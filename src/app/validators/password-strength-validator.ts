@@ -35,39 +35,3 @@ export class PasswordStrengthValidator {
     return { strength: strength };
   }
 }
-/*
-export const PasswordStrengthValidator: ValidatorFn 
-  = (control: AbstractControl): ValidationErrors | null => {
-
-  if (control.value.length < 1) {
-    return { strength: PasswordStrength.Empty };
-  }
-  if (control.value.length < 8 && control.value.length > 0) {
-    return { strength: PasswordStrength.NonEnoughCharacters };
-  }
-
-  const hasLetters = /[a-zA-Z]/.test(control.value);
-  const hasSymbols = /[^a-zA-Z0-9]/.test(control.value);
-  const hasDigits = /\d/.test(control.value);
-  
-  if (hasLetters && hasSymbols && hasDigits) {
-    return { strength: PasswordStrength.Strong }
-  }
-
-  if (hasLetters && hasSymbols || hasLetters && hasDigits || hasDigits && hasSymbols) {
-    return { strength: PasswordStrength.Medium }
-  }
-
-  if (hasLetters || hasSymbols || hasDigits) {
-    result = PasswordStrength.Strong;
-  }
-
-  return null;
-};
-class Zxc{
-  formatResult(strengths: PasswordStrength) : { strength: PasswordStrength } {
-    return { strength: strengths };
-  }
-  
-}
-*/
