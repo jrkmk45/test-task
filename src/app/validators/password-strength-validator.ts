@@ -1,14 +1,17 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { PasswordStrength } from '../enums/password-strength';
 
+const MIN_PASSWORD_LENGTH: number = 8;
+
 export class PasswordStrengthValidator {
+
   public static validateStrength : ValidatorFn 
     = (control: AbstractControl): ValidationErrors | null => {
 
     if (control.value.length < 1) {
       return this.formatResult(PasswordStrength.Empty);
     }
-    if (control.value.length < 8 && control.value.length > 0) {
+    if (control.value.length < MIN_PASSWORD_LENGTH && control.value.length > 0) {
       return this.formatResult(PasswordStrength.NotEnoughCharacters);
     }
 
