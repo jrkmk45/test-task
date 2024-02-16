@@ -20,7 +20,7 @@ export class PasswordStrengthValidator {
     const hasDigits = /\d/.test(control.value);
     
     if (hasLetters && hasSymbols && hasDigits) {
-      return this.formatResult(PasswordStrength.Strong);
+      return null;
     }
 
     if (hasLetters && hasSymbols || hasLetters && hasDigits || hasDigits && hasSymbols) {
@@ -30,7 +30,6 @@ export class PasswordStrengthValidator {
     if (hasLetters || hasSymbols || hasDigits) {
       return this.formatResult(PasswordStrength.Easy);
     }
-
     return null;
   };
 

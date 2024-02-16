@@ -20,5 +20,8 @@ export class PasswordFormComponent {
 
   onPasswordChange() {
     this.passwordStrength = this.passwordForm.get('password')?.getError('strength');
+    if (this.passwordStrength == null) {
+      this.passwordStrength = PasswordStrength.Strong;
+    }
   }
 }
